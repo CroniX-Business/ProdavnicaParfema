@@ -2,6 +2,7 @@
 #define DATATYPE_H
 	typedef struct parfem {
 		char ime[20];
+		char kategorija[20];
 		int cijena;
 		int mililitri;
 		int kolicina;
