@@ -9,7 +9,6 @@
 	void* ispisParfema(const PARFEM* const);
 	void* ispisPronadenogParfema(const PARFEM* const, int);
 	void* pretrazivanjeParfema(PARFEM* const);
-	void* pretrazivanjeSvihParfema(PARFEM* const);
 	void* brisanjeParfema(PARFEM** const, const PARFEM* const, const char* const);
 	void* promijenaBaze(PARFEM* const, const char* const);
 	void zamjena(PARFEM* veci, PARFEM* manji);
