@@ -89,7 +89,6 @@ void* dodajParfem(const char* const datoteka) {
 	printf("\xB3 Broj parfema: %d\n", brojParfema);
 
 	PARFEM temp = { 0 };
-	//temp.ID = idParfema;
 
 	getchar();
 	printf("Unesite ime parfema: ");
@@ -131,7 +130,7 @@ void* ucitavanjeParfema(const char* const datoteka) {
 	}
 
 	fread(&brojParfema, sizeof(int), 1, fp);
-	printf("\xB3 Broj parfema: %d\n", brojParfema);
+	//printf("\xB3 Broj parfema: %d\n", brojParfema);
 
 	PARFEM* poljeParfema = (PARFEM*)calloc(brojParfema, sizeof(PARFEM));
 	if (poljeParfema == NULL) {
@@ -146,7 +145,7 @@ void* ucitavanjeParfema(const char* const datoteka) {
 }
 
 void* ispisParfema(const PARFEM* const poljeParfema) {
-	if (poljeParfema == NULL) {
+	if (poljeParfema == NULL || brojParfema == 0) {
 		printf("Baza parfema je prazna!\n");
 		return NULL;
 	}
@@ -188,7 +187,7 @@ void* pretrazivanjeParfema(PARFEM* const poljeParfema) {
 		return NULL;
 	}
 
-	int i, b, br = 0;
+	int i, b, br = 0, brP[10];
 	int trazeniKriterij = 0;
 	int cijena;
 	char trazenoIme[20] = { '\0' };
@@ -210,20 +209,19 @@ void* pretrazivanjeParfema(PARFEM* const poljeParfema) {
 		{
 			if (!strcmp(trazenoIme, (poljeParfema + i)->ime)) {
 				br++;
+				brP[br] = i;
 				ispisPronadenogParfema(poljeParfema, i);
 			}
 		}
 		if (br == 0) printf("Trazeni parfem ne postoji");
 
 		if (br > 1) {
-			printf("\n	\xB3Unesite redni broj parfema za buduce brisanje: ");
+			printf("\n\xB3Unesite redni broj parfema za buduce brisanje: ");
 			scanf("%d", &b);
-			b -= 1;
-			return (poljeParfema + b);
+			return (poljeParfema + brP[b]);
 		}
 		else {
-			br -= 1;
-			return (poljeParfema + br);
+			return (poljeParfema + i);
 		}
 		break;
 	case 2:
@@ -233,9 +231,11 @@ void* pretrazivanjeParfema(PARFEM* const poljeParfema) {
 		{
 			if (cijena == (poljeParfema + i)->cijena) {
 				br++;
+				brP[br] = i;
 				ispisPronadenogParfema(poljeParfema, i);
 			}
 		}
+
 		if (br == 0) {
 			printf("Trazeni parfem ne postoji");
 			return NULL;
@@ -244,12 +244,10 @@ void* pretrazivanjeParfema(PARFEM* const poljeParfema) {
 		if (br > 1) {
 			printf("\n\xB3Unesite redni broj parfema za buduce brisanje: ");
 			scanf("%d", &b);
-			b -= 1;
-			return (poljeParfema + b);
+			return (poljeParfema + brP[b]);
 		}
 		else {
-			br -= 1;
-			return (poljeParfema + br);
+			return (poljeParfema + i);
 		}
 		break;
 	case 3:
@@ -260,20 +258,19 @@ void* pretrazivanjeParfema(PARFEM* const poljeParfema) {
 		{
 			if (!strcmp(trazenoIme, (poljeParfema + i)->kategorija)) {
 				br++;
+				brP[br] = i;
 				ispisPronadenogParfema(poljeParfema, i);
 			}
 		}
 		if (br == 0) printf("Trazeni parfem ne postoji");
 
 		if (br > 1) {
-			printf("Unesite redni broj parfema za buduce brisanje: ");
+			printf("\n\xB3Unesite redni broj parfema za buduce brisanje: ");
 			scanf("%d", &b);
-			b -= 1;
-			return (poljeParfema + b);
+			return (poljeParfema + brP[b]);
 		}
 		else {
-			br -= 1;
-			return (poljeParfema + br);
+			return (poljeParfema + i);
 		}
 		break;
 	case 4:
