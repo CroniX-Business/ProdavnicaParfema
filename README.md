@@ -1,4 +1,4 @@
-Završni projekkt | FERIT
+Završni projekat | FERIT
 
 Završni projekat iz predmeta Programiranje 2
 
