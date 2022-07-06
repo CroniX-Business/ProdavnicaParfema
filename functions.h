@@ -2,7 +2,7 @@
 #define FUNCTIONS_H
 #include "dataType.h"
 	int izbornik(const char* const);
-	int confirmExit(int);
+	int confirmExit(int, PARFEM*);
 	void* admin();
 	void* dodajParfem(const char* const);
 	void* ucitavanjeParfema(const char* const);
