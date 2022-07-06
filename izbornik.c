@@ -71,7 +71,7 @@ int izbornik(const char* const datoteka) {
 	case 8:
 		printf("	\xB3Program ce se ugasiti!\n		\xB3 0 za gasenje programa\n		\xB3 1 za nastavak\n");
 		scanf("%d", &confirmationExit);
-		choice = confirmExit(confirmationExit);
+		choice = confirmExit(confirmationExit, poljeParfema);
 		break;
 	default:
 		printf("Upisali ste krivi broj za naredbu\nMolimo ponovo upisite broj");
