@@ -7,8 +7,11 @@
 static int brojParfema = 0;
 static int adminPass = 0;
 
-int confirmExit(int confirmationExit) {
-	if (confirmationExit == 0) return 0;
+int confirmExit(int confirmationExit, PARFEM* poljeParfema) {
+	if (confirmationExit == 0) {
+		free(poljeParfema);
+		return 0;
+	}
 }
 
 void* admin() {
