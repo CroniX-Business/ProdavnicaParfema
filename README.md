@@ -1,13 +1,11 @@
-Završni projekat | FERIT
+# Data manipulation app in c
 
-Završni projekat iz predmeta Programiranje 2
+### Final project - Prrogramming 2 | FERIT
 
-Baza podataka za parfeme
+- Add/Delete data
+  
+- Data saving in .bin file
+  
+- Change data
 
-  • dodavanje i brisanje podataka
-  
-  • spremanje podataka u .bin file
-  
-  • izmjena podataka
-  
-  • sortiranje podataka
+- Search and sort data by param
